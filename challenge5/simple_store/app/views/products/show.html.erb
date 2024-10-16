@@ -1,9 +1,10 @@
 <h1><%= @product.title %></h1>
 
 <p>
-  <strong>Price:</strong> $<%= @product.price %><br>
+  <strong>Description:</strong> <%= @product.description %><br>
+  <strong>Price:</strong> <%= number_to_currency(@product.price) %><br>
   <strong>Stock Quantity:</strong> <%= @product.stock_quantity %><br>
-  <strong>Description:</strong> <%= @product.description %>
+  <strong>Category:</strong> <%= @product.category.name if @product.category %><br>
 </p>
 
 <%= link_to 'Back to Products', products_path %>
