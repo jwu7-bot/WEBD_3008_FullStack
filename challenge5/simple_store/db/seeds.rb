@@ -1,3 +1,5 @@
+require "csv"
+
 Product.delete_all
 
 676.times do
