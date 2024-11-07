@@ -14,10 +14,18 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <section class="section">
+      <div class="container">
+        <header>
+          <h1 class="title is-1"><%= link_to 'Customers', root_path %></h1>
+          <%= yield %>
+        </header>
+      </div>
+    </section>
   </body>
 </html>
