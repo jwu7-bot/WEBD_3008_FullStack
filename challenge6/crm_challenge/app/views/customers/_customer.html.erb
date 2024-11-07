@@ -1,28 +1,27 @@
-<div class="column">
-  <div class="card">
-    <div class="card-content">
-      <% if customer.image.present? %>
-        <div class="card-image">
-          <figure class="image">
-            <%= image_tag(customer.image) %>
-          </figure>
+<div class="columns is-multiline">
+  <% @customers.each do |customer| %>
+    <div class="column is-one-quarter">
+      <div class="card">
+        <div class="card-content">
+          <% if customer.image.present? %>
+            <figure class="image is-228x228" style="margin: auto;">
+              <%= image_tag(customer.image, class: "is-rounded") %>
+            </figure>
+          <% end %>
+          <p class="title is-6 has-text-centered">
+            <%= customer.full_name %>
+          </p>
+          <p class="has-text-centered">
+            Phone: <%= customer.phone_number %>
+          </p>
+          <p class="has-text-centered">
+            Email: <%= customer.email_address %>
+          </p>
+          <p class="has-text-centered">
+            Notes: <%= truncate(customer.notes, length: 30) %>
+          </p>
         </div>
-      <% end %>
-      <p class="title">
-          <%= customer.full_name %>
-      </p>
+      </div>
     </div>
-    <footer class="card-footer">
-      <p class="card-footer-item">
-        Phone Number: <br><%= customer.phone_number %>
-      </p>
-      <p class="card-footer-item">
-        Email Address: <br><%= customer.email_address %>
-      </p>
-      <p class="card-footer-item">
-        Notes: <br><%= customer.notes %>
-      </p>
-    </footer>
-  </div>
+  <% end %>
 </div>
-
