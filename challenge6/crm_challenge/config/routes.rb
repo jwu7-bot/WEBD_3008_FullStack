@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   resources :customers, only: [ :index ]
+  resources :customers do
+    collection do
+      get :alphabetized
+    end
+  end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -12,7 +17,4 @@ Rails.application.routes.draw do
   # Render dynamic PWA files from app/views/pwa/*
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-
-  # Defines the root path route ("/")
-  root to: "customers#index"
 end
