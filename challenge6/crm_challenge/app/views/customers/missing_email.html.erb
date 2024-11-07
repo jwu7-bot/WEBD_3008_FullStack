@@ -1,0 +1,9 @@
+<h1 class="title">Customers Missing Email Addresses</h1>
+
+<% if @customers.any? %>
+  <% @customers.each do |customer| %>
+    <%= render partial: "customer", locals: { customer: customer } %>
+  <% end %>
+<% else %>
+  <p>No customers are missing email addresses.</p>
+<% end %>
